@@ -11,34 +11,74 @@
 </head>
 
 <body>
-  <% if user_signed_in? %>
-  <%# <li class="">
-    <%= link_to "Home", user_path(current_user.id) %>
-  </li>
-  <%# <li class="">
-    <%= link_to 'Users', new_post_image_path %>
-  <%# </li> %> %>
-  <%# <li class=""> %>
-    <%# <%= link_to "Books" , user_path(current_user.id) %> %>
-  <%# </li> %> %>
-  <li class="">
-    <%= link_to "logout" , destroy_user_session_path, method: :delete %>
-  </li>
-  <% else %>
-  <%# <li class="">
-    <%= link_to "Home", new_user_registration_path %>
-  <%# </li> %>
-  <%# <li class="">
-    <%= link_to "About", new_user_session_path %>
-  <%# </li> %>
-  <li class="">
-    <%= link_to "signe up", new_user_registration_path %>
-  </li>
-  <li class="">
-    <%= link_to "login", new_user_session_path %>
-  </li>
-  <% end %>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left">
+        <span>Bookers</span>
+      </nav>
+
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li>
+            <a class="glyphicon glyphicon-home home" href="/users/:id">
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="glyphicon glyphicon-user users" href="/users">
+              Users
+            </a>
+          </li>
+          <li>
+            <a class="glyphicon glyphicon-book books" href="/books">
+              Books
+            </a>
+          </li>
+          <li>
+            <a class="glyphicon glyphicon-log-out logout" data-method="delete" href="/users/sign_out">
+              logout
+            </a>
+          </li>
+          <% else %>
+          <li>
+            <a class="glyphicon glyphicon-home home" href="/">
+              Home
+            </a>
+          </li>
+          <li>
+            <a class="glyphicon glyphicon-link about" href="/home/about">
+              About
+            </a>
+          </li>
+          <li>
+            <a class="glyphicon glyphicon-edit sign-up" href="/users/sign_up">
+              sign up
+            </a>
+          </li>
+          <li>
+            <a class="glyphicon glyphicon-log-in sign-in" href="/users/sign_in">
+              login
+            </a>
+          </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <%= yield %>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-3 col-xs-offset-9">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>
