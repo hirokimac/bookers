@@ -51,13 +51,13 @@
                                 <%# <%= link_to book.user.name, (book.user_id) %> %>
                             </td>
                             <td>
-                                <%= link_to book.title, book_path(book.id) %>
+                                <%= link_to book.title, book_path(book) %>
                             </td>
                             <td>
                                 <%= book.body %>
                             </td>
                             <td class="btn-sm btn-success edit_book_44300">
-                            <%= link_to edit_user_path(book.user_id) do %>
+                            <%= link_to edit_book_path(book.id) do %>
                             Edit
                             <% end %>
                             </td>
