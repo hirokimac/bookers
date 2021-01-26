@@ -55,6 +55,16 @@
                             <td>
                                 <%= @books.body %>
                             </td>
+                            <td class="btn-sm btn-success edit_book_44300">
+                            <%= link_to edit_book_path(@books) do %>
+                            Edit
+                            <% end %>
+                            </td>
+                            <td class="btn-sm btn-danger destroy_book_44300">
+                            <%= link_to book_path(@books), method: :delete do %>
+                            Destroy
+                            <% end %>
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
