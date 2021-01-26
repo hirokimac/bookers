@@ -55,14 +55,18 @@
                             <td>
                                 <%= @books.body %>
                             </td>
+                            <% if current_user.id == @books.user.id %>
                             <td class="btn-sm btn-success edit_book_44300">
                             <%= link_to edit_book_path(@books) do %>
                             Edit
                             <% end %>
+                            <% end %>
+                            <% if current_user.id ==@books.user.id %>
                             </td>
                             <td class="btn-sm btn-danger destroy_book_44300">
-                            <%= link_to book_path(@books), method: :delete do %>
+                            <%= link_to book_path(@books), method: :delete, data: { confirm: "本当に削除しますか？"} do %>
                             Destroy
+                            <% end %>
                             <% end %>
                             </td>
                         </tr>
