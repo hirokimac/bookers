@@ -6,9 +6,8 @@ class BooksController < ApplicationController
     end
 
     def show
-        @user = User.find(current_user.id)
         @book = Book.new
-        @books = @user.books
+        @books = Book.find(params[:id])
     end
 
     def create
@@ -17,8 +16,10 @@ class BooksController < ApplicationController
         if @book.save
             redirect_to book_path(@book)
         else
-            @user = User.find(params[:id])
-            render :user
+            @user = User.find(current_user.id)
+            @book = Book.new
+            @books = Book.all
+            render :index
         end
     end
 
