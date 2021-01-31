@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_073740) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "image_id"
+    t.string "profile_image_id"
     t.integer "user_id"
     t.text "introduction"
     t.string "name"
