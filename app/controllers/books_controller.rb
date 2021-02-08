@@ -38,8 +38,9 @@ class BooksController < ApplicationController
         redirect_to book_path(@book.id), notice:"You have updated book successfully."
     else
         @book.errors.full_messages
-        render :index
+        render :edit
     end
+end
 
     def destroy
         @book = Book.find(params[:id])
@@ -51,7 +52,5 @@ class BooksController < ApplicationController
     def book_params
         params.require(:book).permit(:title, :body,)
     end
-
-end
 
 end
