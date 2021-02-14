@@ -29,8 +29,15 @@
                             <td>
                                 <%= book.body %>
                             </td>
+                            <div class="comment-list bt style-2" id="comments">
+                                <div class="float-wrapper">
+                                    <td class="comment-count">
+                                        コメント数：<%= book.book_comments.count %>
+                                    </td>
+                                </div>
+                            </div>
+                            <% end %>
                         </tr>
-                        <% end %>
                     </thead>
                     <tbody>
                     </tbody>

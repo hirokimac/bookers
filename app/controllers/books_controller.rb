@@ -10,6 +10,7 @@ class BooksController < ApplicationController
         @book = Book.new
         @books = Book.find(params[:id])
         @user = User.find(@books.user_id)
+        @book_comment = BookComment.new
     end
 
     def create
@@ -26,7 +27,7 @@ class BooksController < ApplicationController
     end
 
     def edit
-        @ book = Book.find(params[:id])
+        @book = Book.find(params[:id])
         if @book.user_id != current_user.id
             redirect_to books_path
         end
