@@ -16,6 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
 * {
     margin: 0;
     padding: 0;
@@ -53,16 +56,33 @@ header .navbar-left span {
     list-style: none;
 }
 
-h1, .h1, h2, .h2, h3, .h3 {
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
-h1, .h1 {
+h1,
+.h1 {
     font-size: 36px;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
@@ -75,7 +95,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 #notice {
     color: green;
-  }
+}
 
 label {
     display: inline-block;
@@ -109,4 +129,20 @@ label {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.like-btn {
+    width: 25px;
+    height: 30px;
+    font-size: 25px;
+    color: #808080;
+    margin-left: 20px;
+}
+
+.unlike-btn {
+    width: 25px;
+    height: 30px;
+    font-size: 25px;
+    color: #e54747;
+    margin-left: 20px;
 }
