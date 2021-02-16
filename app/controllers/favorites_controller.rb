@@ -14,4 +14,5 @@ class FavoritesController < ApplicationController
         redirect_to request.referer
     end
 
+    
 end
