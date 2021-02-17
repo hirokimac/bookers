@@ -1,18 +1,9 @@
 class Relationship < ApplicationRecord
 
-    belongs_to :follower, class_name: "User"
-    belongs_to :followed, class_name: "User"
+    belongs_to :user
+    belongs_to :follow, class_name:"User"
 
-    def follow(user_id)
-        follower.create(followed_id: user_id)
-    end
-
-    def unfollow(user_id)
-        follower.find_by(followed_id: user_id).destroy
-    end
-
-    def following?(user)
-        following_user.include?(user)
-    end
+    validates :user_id, presence: true
+    validates :follow_id, presence: true
 
 end
