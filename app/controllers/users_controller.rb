@@ -28,6 +28,18 @@ end
     end
   end
 
+  def following
+    @user = User.find_by(id: params[:id])
+    @users = @user.followings
+    render "show_follow"
+  end
+
+  def followers
+    @user = User.find_by(id: params[:id])
+    @users = @user.followers
+    render "show_follower"
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)

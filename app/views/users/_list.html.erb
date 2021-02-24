@@ -17,13 +17,41 @@
     </tr>
     <tr>
         <th>name</th>
-        <th><%= user.name %></th>
+        <td><%= user.name %></td>
     </tr>
     <tr>
         <th>introduction</th>
-        <th><%= user.introduction %></th>
+        <td><%= user.introduction %></td>
+    </tr>
+    <tr class="following-count">
+        <th>follows</th>
+        <td>
+            <%= link_to following_user_path(user.id) do %>
+            <%= user.followings.count %>
+            <% end %>
+        </td>
+    </tr>
+    <tr class="follower-count">
+        <th>followers</th>
+        <td>
+            <%= link_to followers_user_path(user.id) do %>
+            <%= user.followers.count %>
+            <% end %>
+        </td>
     </tr>
 </table>
+<% if user.id != current_user.id %>
+<div class="row">
+    <td>
+        <% unless current_user == user %>
+        <% if current_user.following?(user) %>
+        <%= link_to "フォロー外す", user_relationship_path(current_user.id , user.id) , method: :delete %>
+        <% else %>
+        <%= link_to "フォローする", user_relationships_path(user.id) , method: :post %>
+        <% end %>
+        <% end %> </td>
+</div>
+<% end %>
 <% if user.id == current_user.id %>
 <div class="row">
     <p><%= link_to "", edit_user_path(user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>

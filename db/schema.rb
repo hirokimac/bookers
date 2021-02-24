@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_134412) do
+ActiveRecord::Schema.define(version: 2021_02_23_042814) do
 
   create_table "book_comments", force: :cascade do |t|
     t.text "comment"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2021_02_14_134412) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -43,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_134412) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "profile_image_id"
+    t.integer "user_id"
     t.text "introduction"
     t.string "name"
     t.datetime "created_at", null: false
